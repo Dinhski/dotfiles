@@ -1,11 +1,3 @@
-
-filetype off
-filetype plugin indent on
-
-syntax on
-
-set number
-
 " Setting up Vundle - the vim plugin bundler
     let iCanHazVundle=1
     let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -20,8 +12,11 @@ set number
     call vundle#rc()
     Bundle 'gmarik/vundle'
     "Add your bundles here
-    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'https://github.com/altercation/vim-colors-solarized.git'
     Bundle 'https://github.com/tpope/vim-fugitive'
+    Bundle 'https://github.com/tpope/vim-surround.git'
+    Bundle 'https://github.com/scrooloose/nerdtree.git'
+    Bundle 'https://github.com/scrooloose/syntastic.git'
   
    "...All your other bundles... 
 
@@ -31,3 +26,20 @@ set number
         :BundleInstall
     endif
 " Setting up Vundle - the vim plugin bundler end	
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Settings for Solarized
+
+filetype off
+filetype plugin indent on
+syntax enable
+set background=light
+set t_Co=16
+colorscheme solarized 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set number
+
+
