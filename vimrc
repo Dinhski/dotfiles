@@ -1,3 +1,8 @@
+
+
+"Turn off vi compatibility mode
+set nocompatible
+
 " Setting up Vundle - the vim plugin bundler
     let iCanHazVundle=1
     let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -17,6 +22,11 @@
     Bundle 'https://github.com/tpope/vim-surround.git'
     Bundle 'https://github.com/scrooloose/nerdtree.git'
     Bundle 'https://github.com/scrooloose/syntastic.git'
+    Bundle 'https://github.com/kien/ctrlp.vim.git'
+    Bundle 'https://github.com/Lokaltog/vim-easymotion.git'
+    Bundle 'https://github.com/mattn/zencoding-vim.git'
+    Bundle 'https://github.com/garbas/vim-snipmate.git'
+    Bundle 'https://github.com/scrooloose/nerdcommenter.git'
   
    "...All your other bundles... 
 
@@ -27,23 +37,40 @@
     endif
 " Setting up Vundle - the vim plugin bundler end	
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Settings for Solarized
 
 filetype off
-filetype plugin indent on
+filetype plugin indent on  
 syntax enable
 set background=light
 set t_Co=16
 colorscheme solarized 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set number
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Omnicomplete 
+"Omnicomplete 
 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
+
+
+"------------------------------------------------------------
+" CtrlP
+"------------------------------------------------------------
+" Set the max files
+let g:ctrlp_max_files = 10000
+
+" Optimize file searching
+if has("unix")
+    let g:ctrlp_user_command = {
+                \   'types': {
+                \       1: ['.git/', 'cd %s && git ls-files']
+                \   },
+                \   'fallback': 'find %s -type f | head -' . g:ctrlp_max_files
+                \ }
+endif
