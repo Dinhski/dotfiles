@@ -42,4 +42,8 @@ colorscheme solarized
 
 set number
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Omnicomplete 
+
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
